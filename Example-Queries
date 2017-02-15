@@ -1,3 +1,7 @@
+Note all rows:
+Row	VendorID	tpep_pickup_datetime	tpep_dropoff_datetime	Passenger_count	Trip_distance	Pickup_longitude	Pickup_latitude	RateCodeID	Store_and_fwd_flag	Dropoff_longitude	Dropoff_latitude	Payment_type	Fare_amount	Extra	MTA_tax	Improvement_surcharge	Tip_amount	Tolls_amount	Total_amount	
+
+
 Example queries for Google BigQuery: https://console.cloud.google.com/iam-admin/iam/project?project=bigquery-158617
 
 SELECT Passenger_count, Pickup_longitude, Pickup_latitude
@@ -10,6 +14,8 @@ SELECT Passenger_count, Pickup_longitude, Pickup_latitude
 FROM [TaxiTrips.example_table]
 WHERE Pickup_longitude > -74 AND Pickup_latitude < 40.75
 
+//This creates NEW columns (AS assigns a name to a new column)! 
+//GROUP BY gives back an aggregation of output (rather than indiviudal)
 SELECT Passenger_count, COUNT(*) AS number_of_trip, AVG(Total_amount) AS average_fare
 FROM [TaxiTrips.example_table]
 GROUP BY Passenger_count
